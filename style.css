@@ -1,0 +1,109 @@
+:root{
+    --smile:black;
+    --cry:transparent;
+} 
+body{
+    background-color: rgb(107, 245, 245);
+    display: flex;
+    justify-content: center;
+    height:100vh;
+    width:100vw;
+    overflow: hidden;
+    position:relative;
+    padding:0;
+}
+
+#sun{
+    position:absolute;
+    top:0vmin;
+    left:calc(50vw - 15vmin);
+    width:30vmin;
+    height:30vmin;
+}
+
+
+
+.cloud{
+    position:absolute;
+    top:50vmin;
+    left:100vw;
+    width:20vmin;
+    height:20vmin;
+    background-image: radial-gradient(ellipse at 50% 50%,var(--cloud-color) 0 50%,transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%),
+    radial-gradient(ellipse at center, var(--cloud-color) 0 60%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--cloud-color) 0 50%, transparent 50%);
+    background-position: 12% 42%,45% 30%,80% 25%, 35% 55%,75% 55%, 90% 45%, 30% 42%,45% 50%,65% 50%;
+    background-size:40% 30%,40% 40%, 45% 65%, 40% 30%, 40% 40%,30% 30%, 30% 30%,30% 30%,40% 30%;
+    background-repeat:no-repeat;
+    opacity:1;
+    /* animation: dissipate 2s ease-in infinite; */
+    transition: top 3s ease,width 2s ease,opacity 2s ease, background-size 2s ease;
+    overflow:hidden;
+    /* animation:traveling 5s linear 5s; */
+}
+
+.cloud::before{
+    content:'';
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:20vmin;
+    height:20vmin;
+    background-image:radial-gradient(circle at 40% 40%, var(--smile) 0 5%, transparent 5%),
+    radial-gradient(circle at 65% 40%, var(--smile) 0 5%, transparent 5%),
+    radial-gradient(ellipse at 50% 0%,transparent 0 20%,var(--smile) 20% 40%, transparent 40%),
+    linear-gradient(45deg, transparent 0 30%,var(--cry) 30% 50%, transparent 50%),
+    linear-gradient(-45deg, transparent 0 30%,var(--cry) 30% 50%, transparent 50%),
+    linear-gradient(-45deg, transparent 0 30%,var(--cry) 30% 50%, transparent 50%),
+    linear-gradient(45deg, transparent 0 30%,var(--cry) 30% 50%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, transparent 0 20%, var(--cry) 20% 40%,transparent 20%);
+    background-size:100% 100%,100% 100%, 20% 10%,6% 6%,6% 6%,6% 6%,6% 6%,15% 15%;
+    background-position:50% 50%, 50% 50%, 52.5% 50%, 40% 37.5%,40% 42.5%,62.5% 37.5%,65% 42.5%,52.5% 50%;
+    background-repeat:no-repeat;
+    
+}
+
+
+
+
+.cloud.heating{
+    animation: tumbling 0.1s linear infinite;
+} 
+
+.cloud.dissipating{
+   
+    top:0vmin;
+    /* left:calc(50vw - 12vmin); */
+    width:24vmin;
+    opacity:0;
+    background-size:0% 0%;
+  
+}
+
+@keyframes tumbling{
+    0% {
+        transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(5deg);
+    }
+    75%{
+        transform:rotate(-5deg);
+    }
+
+    100%{
+        transform:rotate(0deg);
+    }
+}
+
+
+
+
+
+
